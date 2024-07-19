@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+       <section class="col-3">
+        <h5 class="text-warning">Sort</h5>
+        <select class="form-select mb-4">
+          <option selected>Alphabetical</option>
+          <option value="1">Price: Low to High</option>
+          <option value="2">Price: High to Low</option>
+        </select>
+
+        <h5 class="text-warning ms-3">Brands</h5>
+        <ul class="list-group my-3">
+          <li class="list-group-item" 
+          [value]="brand.id"
+          *ngFor="let brand of brands" 
+          [ngClass]="{active: brand.id === brandIdSelected}" 
+          (click)="onBrandSelected(brand.id)"
+          aria-current="true">{{brand.name}}</li>
+        </ul>
+        <h5 class="text-warning ms-3">Types</h5>
+        <ul class="list-group my-3">
+          <li class="list-group-item" 
+          [value]="type.id" 
+          [ngClass]="{active: typeIdSelected === type.id}"  
+          *ngFor="let type of types" 
+          (click)="onTypeSelected(type.id)"
+          aria-current="true">{{type.name}}</li>      
+        </ul>
+       </section>
+       <section class="col-9">
+
+        <div class="d-flex justify-content-between aling-items-center pb-2">
+          <header>
+            <span> Showing <strong>{{products.length}}</strong> of <strong>{{products.length}}</strong></span>
+          </header>
+          <div class="d-flex mt-2">
+            <input class="form-control me-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-primary mx-2" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit">Reset</button>
+            
+          </div>
+        </div>
+
+          <div class="row row-cols-3 g-3">
+            <div class="col" *ngFor="let product of products">
+              <app-product-item [product]="product"></app-product-item>
+            </div>
+          </div>
+       </section>
+    </div>
+</div>
+
+<!-- <div class="card m-3" style="width: 18rem;" *ngFor="let product of products">
+  <img src="{{product.pictureUrl}}" class="card-img-top" alt="...">
+  <div class="card-body col ">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <p class="card-text">{{product.price | currency}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->

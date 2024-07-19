@@ -1,15 +1,4 @@
 <app-nav-bar></app-nav-bar>
 <div class="container" style="margin-top: 140px;">
-    <h1>Welcome to {{ title }}</h1>
-    
-            <div class="container row "  >
-                <div class="card m-3" style="width: 18rem;" *ngFor="let product of products">
-                    <img src="{{product.pictureUrl}}" class="card-img-top" alt="...">
-                    <div class="card-body col ">
-                      <h5 class="card-title">{{product.name}}</h5>
-                      <p class="card-text">{{product.description}}</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>   
+    <app-shop></app-shop>
 </div>
